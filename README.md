@@ -13,15 +13,16 @@ Rather than focusing solely on installing operating systems, I approached the pr
 
 # 2. Project Objectives
 The main objectives of this project were to:
-•	Build a virtualised corporate network using Oracle VirtualBox.
-•	Simulate an organisation with separate IT and Operations departments.
-•	Implement subnetting to organise the departmental networks.
-•	Deploy Windows Server as the intended platform for Active Directory, DNS, and DHCP services.
-•	Set up an Ubuntu Server to represent a Linux-based server environment.
-•	Include a pfSense firewall and router in the network architecture.
-•	Configure virtual machines and verify their IP addresses against the intended subnet assignments.
-•	Troubleshoot virtual machine storage and network configuration challenges.
-•	Develop practical skills relevant to network administration, infrastructure security, and entry-level SOC Analyst responsibilities.
+
+- *PBuild a virtualised corporate network using Oracle VirtualBox.*
+-	*Simulate an organisation with separate IT and Operations departments.*
+- *Implement subnetting to organise the departmental networks.*
+- *Deploy Windows Server as the intended platform for Active Directory, DNS, and DHCP services.*
+- *Set up an Ubuntu Server to represent a Linux-based server environment.*
+- *Include a pfSense firewall and router in the network architecture.*
+- *Configure virtual machines and verify their IP addresses against the intended subnet assignments.*
+- *Troubleshoot virtual machine storage and network configuration challenges.*
+- *Develop practical skills relevant to network administration, infrastructure security, and entry-level SOC Analyst responsibilities.*
 
 
 
@@ -55,7 +56,7 @@ Grouping virtual machines in VirtualBox helps with organisation, but subnet sepa
 
 
 
-# 4. Implementation Process
+## 4. Implementation Process
 # Step 1: Planning the Environment
 I began by identifying the required virtual machines and network components based on the intended corporate architecture.
 I planned the environment around two departments, IT and Operations, and identified the servers, client devices, firewall, and router required to represent the network.
@@ -90,42 +91,46 @@ The inclusion of these components helped me relate subnetting and network design
 
 
 
-# 5. Challenges Encountered and Solutions
+## 5. Challenges Encountered and Solutions
 
 # Challenge 1: Insufficient Storage for Virtual Machines
 # Problem
 During the initial setup, I encountered storage limitations when creating and installing virtual machines. The available space in the original storage location was insufficient for the requirements of the lab.
+
 # Solution
 I researched how VirtualBox stores virtual machine files and located the directory where the virtual machines were being saved. I then created a separate storage partition with sufficient available capacity and changed the virtual machine storage location to the new partition.
 This resolved the storage constraint and allowed me to continue setting up the environment.
+
 # Key lesson
 Virtualisation requires careful resource planning. Storage allocation and the location of virtual machine files can affect the successful deployment of multiple systems.
 
 # Challenge 2: Network Segmentation and Subnetting
 # Problem
 The lab required the organisation to be divided into IT and Operations, with each department assigned to its intended subnet. I initially encountered difficulties organising the virtual machines and applying the appropriate network configuration.
+
 # Solution
 I approached the problem by organising the virtual machines according to their intended roles, configuring the Operations and IT subnet arrangements, and assigning the relevant machines to the appropriate virtual networks.
 I then used ifconfig to inspect the IPv4 addresses of the relevant Linux machines and checked the addresses against the intended subnet configuration.
 This process helped me verify the subnet assignments and develop a clearer understanding of the relationship between IP addressing and virtual network configuration.
+
 # Key lesson
 Subnetting requires more than grouping devices by department. The virtual network assignment, IP address, subnet mask, and routing configuration determine how systems communicate.
 Verifying the resulting IP addresses was therefore an important part of the implementation process.
 
 
 
-# 6. Skills Developed
+## 6. Skills Developed
 This project provided practical experience in the following areas:
-•	Virtualisation: Creating and managing virtual machines in Oracle VirtualBox.
-•	Storage management: Troubleshooting disk-space limitations and relocating virtual machine storage.
-•	Networking fundamentals: Working with IPv4 addressing, network interfaces, and subnetting.
-•	Network segmentation: Organising devices into separate departmental subnets.
-•	Subnet validation: Using ifconfig to inspect IP addresses and verify intended network assignments.
-•	Windows infrastructure: Understanding the intended role of Windows Server in centralised identity and network services.
-•	Linux administration: Working with Linux-based systems and command-line network tools.
-•	Network security architecture: Understanding the roles of firewalls, routers, and network boundaries.
-•	Technical troubleshooting: Researching issues, applying solutions, and checking the resulting configuration.
-•	Technical documentation: Recording the architecture, implementation steps, challenges, and lessons learned.
+- **Virtualisation:** Creating and managing virtual machines in Oracle VirtualBox.
+-	**Storage management:** Troubleshooting disk-space limitations and relocating virtual machine storage.
+- **Networking fundamentals:** Working with IPv4 addressing, network interfaces, and subnetting.
+- **Network segmentation:** Organising devices into separate departmental subnets.
+- **Subnet validation:** Using ifconfig to inspect IP addresses and verify intended network assignments.
+-	**Windows infrastructure:** Understanding the intended role of Windows Server in centralised identity and network services.
+-	**Linux administration:** Working with Linux-based systems and command-line network tools.
+-	**Network security architecture:** Understanding the roles of firewalls, routers, and network boundaries.
+-	**Technical troubleshooting:** Researching issues, applying solutions, and checking the resulting configuration.
+-	**Technical documentation:** Recording the architecture, implementation steps, challenges, and lessons learned.
 
 
 
@@ -150,11 +155,11 @@ This homelab represents a practical step in my cybersecurity learning journey, p
 
 # 9. Project Evidence
 The project can be supported with the following evidence:
-•	Network architecture diagram showing the virtual machines, departmental subnets, firewall, router, and intended internet connection.
-•	Screenshots of the VirtualBox environment showing the created virtual machines.
-•	Screenshots of Linux network interfaces and IPv4 addresses used during subnet validation.
-•	Evidence of the separate storage partition and the updated virtual machine storage location.
-•	Relevant configuration screenshots demonstrating the departmental network assignments.
+- Network architecture diagram showing the virtual machines, departmental subnets, firewall, router, and intended internet connection.
+- Screenshots of the VirtualBox environment showing the created virtual machines.
+- Screenshots of Linux network interfaces and IPv4 addresses used during subnet validation.
+- Evidence of the separate storage partition and the updated virtual machine storage location.
+- Relevant configuration screenshots demonstrating the departmental network assignments.
 
 _________________________________________________________________________________________________________________________________
 
