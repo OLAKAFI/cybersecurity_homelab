@@ -1,5 +1,5 @@
 # Cybersecurity Homelab: Virtualised Corporate Network, Subnetting and Security Infrastructure
-# cybersecurity_homelab
+### cybersecurity_homelab
 A virtualised corporate network homelab built with VirtualBox, Windows Server, Ubuntu, Kali Linux, and pfSense, focusing on departmental subnetting, IP address validation, infrastructure configuration, and troubleshooting.
 
 
@@ -29,7 +29,7 @@ The main objectives of this project were to:
 # 3. Network Architecture
 The network was designed to represent a small corporate environment in which client devices and servers communicate through a virtualised network infrastructure.
 
-# Core Components                                Component	Purpose
+### Core Components                              Component	Purpose
 Oracle VirtualBox	                               Hosts and manages the virtual machines.
 Windows Server	                                 Intended to provide Active Directory, DNS, and DHCP services.
 Ubuntu Server	                                   Provides a Linux-based server environment for applications and other services.
@@ -42,84 +42,84 @@ Operations Subnet	                               Groups the client systems assig
 IT Subnet	                                       Provides a separate logical network for IT-related systems.
 
 
-# Network Design
+### Network Design
 The architecture follows this general traffic path:
 
-*Client Devices → Internal Network Switch → pfSense Firewall → Router → Internet *
+*Client Devices* → *Internal Network Switch* → *pfSense Firewall* → *Router* → *Internet*
 
 The Operations and IT departments were organised into separate subnets to support logical network separation.
 The Windows Server and Ubuntu Server provide the server infrastructure within the environment, while the Windows clients represent end-user systems. Kali Linux is included for controlled security testing.
 The firewall is positioned between the internal network and the external connection to represent a security boundary. Actual traffic control depends on the configured firewall interfaces, routing, and rules.
 
-# Important distinction: 
+### Important distinction: 
 Grouping virtual machines in VirtualBox helps with organisation, but subnet separation is established through the virtual network configuration and IP addressing. Communication between subnets is also influenced by routing and firewall policies.
 
 
 
-## 4. Implementation Process
-# Step 1: Planning the Environment
+# 4. Implementation Process
+## Step 1: Planning the Environment
 I began by identifying the required virtual machines and network components based on the intended corporate architecture.
 I planned the environment around two departments, IT and Operations, and identified the servers, client devices, firewall, and router required to represent the network.
 This provided a clear structure for deploying the systems and configuring the network.
 
-# Step 2: Creating Virtual Machines in VirtualBox
+## Step 2: Creating Virtual Machines in VirtualBox
 I created the virtual machines using Oracle VirtualBox and prepared them for the installation of their respective operating systems.
 During this stage, I encountered storage limitations that affected the creation and installation of some virtual machines. I investigated how VirtualBox stores virtual machine files and addressed the issue by creating a separate storage partition and changing the virtual machine storage location.
 This allowed me to continue the deployment without being restricted by the available space in the original storage location.
 
-# Step 3: Installing and Preparing the Systems
+## Step 3: Installing and Preparing the Systems
 I installed and prepared the operating systems required for the environment, including Windows Server, Windows client systems, Ubuntu Server, and Kali Linux.
 Each system was assigned a role within the simulated network. The Windows Server was intended for centralised identity and network services, while Ubuntu Server provided a Linux-based server platform.
 The Windows clients represented departmental workstations, and Kali Linux provided a platform for security testing.
 
-# Step 4: Organising the Departmental Subnets
+## Step 4: Organising the Departmental Subnets
 I organised the virtual machines according to their intended departmental roles and worked on configuring the Operations and IT subnets.
 This involved grouping the machines for easier management, creating the intended subnet arrangements, and associating the relevant machines with their appropriate virtual networks.
 The process helped me understand the difference between organising virtual machines within VirtualBox and configuring the actual network settings that determine how devices communicate.
 
-# Step 5: Validating Subnet Assignments
+## Step 5: Validating Subnet Assignments
 Subnet validation formed part of the project implementation.
 After configuring the network assignments, I used the ifconfig command on the relevant Linux machines to inspect their network interfaces and IPv4 addresses.
 I checked the resulting addresses against the intended subnet assignments to confirm whether the machines were configured for their designated networks.
 This validation was important because the correct subnet assignment could not be established simply by looking at how the machines were grouped in VirtualBox.
 The checks helped me verify the IP addressing configuration and reinforced the importance of validating network settings after making configuration changes.
 
-# Step 6: Incorporating the Security Infrastructure
+## Step 6: Incorporating the Security Infrastructure
 The architecture also included pfSense and a router to represent the security boundary and external connectivity.
 The intended arrangement places the firewall between the internal network and the router. This provides a basis for understanding how network traffic can be controlled and how security policies can be applied to internal and external communications.
 The inclusion of these components helped me relate subnetting and network design to broader cybersecurity principles, particularly traffic filtering and network access control.
 
 
 
-## 5. Challenges Encountered and Solutions
+# 5. Challenges Encountered and Solutions
 
-# Challenge 1: Insufficient Storage for Virtual Machines
-# Problem
+## Challenge 1: Insufficient Storage for Virtual Machines
+### Problem
 During the initial setup, I encountered storage limitations when creating and installing virtual machines. The available space in the original storage location was insufficient for the requirements of the lab.
 
-# Solution
+### Solution
 I researched how VirtualBox stores virtual machine files and located the directory where the virtual machines were being saved. I then created a separate storage partition with sufficient available capacity and changed the virtual machine storage location to the new partition.
 This resolved the storage constraint and allowed me to continue setting up the environment.
 
-# Key lesson
+### Key lesson
 Virtualisation requires careful resource planning. Storage allocation and the location of virtual machine files can affect the successful deployment of multiple systems.
 
-# Challenge 2: Network Segmentation and Subnetting
-# Problem
+## Challenge 2: Network Segmentation and Subnetting
+### Problem
 The lab required the organisation to be divided into IT and Operations, with each department assigned to its intended subnet. I initially encountered difficulties organising the virtual machines and applying the appropriate network configuration.
 
-# Solution
+### Solution
 I approached the problem by organising the virtual machines according to their intended roles, configuring the Operations and IT subnet arrangements, and assigning the relevant machines to the appropriate virtual networks.
 I then used ifconfig to inspect the IPv4 addresses of the relevant Linux machines and checked the addresses against the intended subnet configuration.
 This process helped me verify the subnet assignments and develop a clearer understanding of the relationship between IP addressing and virtual network configuration.
 
-# Key lesson
+### Key lesson
 Subnetting requires more than grouping devices by department. The virtual network assignment, IP address, subnet mask, and routing configuration determine how systems communicate.
 Verifying the resulting IP addresses was therefore an important part of the implementation process.
 
 
 
-## 6. Skills Developed
+# 6. Skills Developed
 This project provided practical experience in the following areas:
 - **Virtualisation:** Creating and managing virtual machines in Oracle VirtualBox.
 -	**Storage management:** Troubleshooting disk-space limitations and relocating virtual machine storage.
@@ -163,7 +163,7 @@ The project can be supported with the following evidence:
 
 _________________________________________________________________________________________________________________________________
 
-# Project type: Cybersecurity Homelab / Virtualised Network Infrastructure
-# Technologies: Oracle VirtualBox, Windows Server, Windows client operating systems, Ubuntu Server, Kali Linux, pfSense
+#### Project type: Cybersecurity Homelab / Virtualised Network Infrastructure
+#### Technologies: Oracle VirtualBox, Windows Server, Windows client operating systems, Ubuntu Server, Kali Linux, pfSense
 Core areas: Virtualisation, IPv4 addressing, subnetting, network segmentation, infrastructure troubleshooting, and security architecture
 
