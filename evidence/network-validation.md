@@ -32,8 +32,11 @@ departmental subnets:
 -   **Operations subnet:** Workstations representing the Operations
     department, including the relevant user endpoints. This include 
 	the HR Window PC, Audit Window PC, Sales Window PC and Windows Server.
+	The Operation subnet is configured with IPv4 addresses within the **10.0.2.0/24 range**.
+ 
 -   **IT subnet:** IT-related systems and security-testing resources,
     including the Ubuntu Server, Parrot Security and Kali Linux machine.
+    The IT subnet is configured with IPv4 addresses within the **10.0.3.0/27 range**.
 
 The purpose of this separation was to organise devices by their intended
 role and establish a foundation for applying different network access
@@ -59,55 +62,21 @@ interface addressing. The default route can be checked with `ip route`.
 On Windows systems, `ipconfig` was used to review IPv4 addresses,
 subnet masks, and default gateways.
 
+
 ## 4. Addressing and Subnet Evidence
 
 The table below are the actual values recorded in the lab.
 
-  ---------------------------------------------------------------------------
-  Department / Machine       IPv4        Subnet mask Default     Result
-  subnet                     address     / prefix    gateway     
-  ------------ ------------- ----------- ----------- ----------- ------------
-Operations   Sales Windows *\[Enter    *\[Enter    *\[Enter    Consistent
-               PC            observed    observed    observed    with
-                             value\]*    value\]*    value\]*    intended
-                                                                 subnet /
-                                                                 Review
-
-  Operations   Audit Windows *\[Enter    *\[Enter    *\[Enter    Consistent
-               PC            observed    observed    observed    with
-                             value\]*    value\]*    value\]*    intended
-                                                                 subnet /
-                                                                 Review
-
-  Operations   HR Windows PC *\[Enter    *\[Enter    *\[Enter    Consistent
-                             observed    observed    observed    with
-                             value\]*    value\]*    value\]*    intended
-                                                                 subnet /
-                                                                 Review
-
-  Operations   Operations    *\[Enter    *\[Enter    *\[Enter    Consistent
-               workstation   observed    observed    observed    with
-                             value\]*    value\]*    value\]*    intended
-                                                                 subnet /
-                                                                 Review
-
-  IT           Windows       *\[Enter    *\[Enter    *\[Enter    Consistent
-               Server        observed    observed    observed    with
-               (Domain       value\]*    value\]*    value\]*    intended
-               Controller)                                       subnet /
-                                                                 Review
-
-  IT           Ubuntu Server *\[Enter    *\[Enter    *\[Enter    Consistent
-                             observed    observed    observed    with
-                             value\]*    value\]*    value\]*    intended
-                                                                 subnet /
-                                                                 Review
-
-  IT           Kali Linux    *\[Enter    *\[Enter    *\[Enter    Consistent
-                             observed    observed    observed    with
-                             value\]*    value\]*    value\]*    intended
-                                                                 subnet /
-                                                                 Review
+ ----------------------------------------------------------------------------
+  | Department / subnet | Machine | IPv4 address | Subnet mask / prefix | Default gateway | Result |
+|---|---|---|---|---|---|
+| IT | Ubuntu Server | 10.0.3.6 | 255.255.255.0 (/27) | 10.0.3.1 | Consistent with intended subnet |
+| IT | Kali Linux | 10.0.3.7 | 255.255.255.0 (/27) | 10.0.3.1 | Consistent with intended subnet |
+| IT | Parrot Machine | 10.0.3.9 | 255.255.255.0 (/27) | 10.0.3.1 | Consistent with intended subnet |
+| Operations | Sales Windows PC | 10.0.2.3 | 255.255.255.0 (/24) | 10.0.2.1 | Consistent with intended subnet |
+| Operations | Audit Windows PC | 10.0.2.5 | 255.255.255.0 (/24) | 10.0.2.1 | Consistent with intended subnet |
+| Operations | HR Windows PC | 10.0.2.15 | 255.255.255.0 (/24) | 10.0.2.1 | Consistent with intended subnet |
+| Operations | Windows Server (Domain Controller) | 10.0.2.4 | 255.255.255.0 (/24) | 10.0.2.1 | Consistent with intended subnet |
   ---------------------------------------------------------------------------
 
 
@@ -125,48 +94,47 @@ cybersecurity-homelab/
 ├── diagrams/
 │   └── network-architecture.png
 └── evidence/
-    └── network-validation/
-        ├── operations-ip-configuration.png
-        ├── it-ip-configuration.png
-        └── gateway-configuration.png
+    └── IT subnet/
+		├── kalimachine-ip-configuration.png
+		├── parrotmachine-ip-configuration.png
+		└── Ubuntuserver-configuration.png
+	└── Operation Subnet/
+		├── Auditwindowspc-ip-configuration.png
+		├── HRwindowspc-ip-configuration.png
+		├── Saleswindowspc-ip-configuration.png
+		└── Windowsserver-ip-configuration.png
 ```
 
-### Evidence 1 --- Operations subnet
+### Evidence 1 --- IT Subnet IP configuration
 
-**File:** `evidence/network-validation/operations-ip-configuration.png`
+**File:** `evidence/IT subnet/kalimachine-ip-configuration.png`
+**File:** `evidence/IT subnet/parrotmachine-ip-configuration.png`
+**File:** `evidence/IT subnet/Ubuntuserver-configuration.png`
 
-**What it demonstrates:** The observed IPv4 configuration for the
-Operations machines. The displayed address and subnet information should
-be consistent with the intended Operations subnet.
 
-**Observation:** *\[Add a short note describing what the screenshot
-proves.\]*
+**Observation:** *\[The screenshots shows the  Ubuntu Server, Kali Linux, 
+and Parrot machines configured with IPv4 addresses in the
+10.0.3.0/27 range (10.0.3.6, .7, and .9 respectively), each
+with a subnet mask of 255.255.255.0 and default gateway 10.0.3.1.
+This confirms the machines are correctly placed within the IT subnet.\]*
 
-### Evidence 2 --- IT subnet
 
-**File:** `evidence/network-validation/it-ip-configuration.png`
+### Evidence 2 --- Operations Subnet IP configuration
 
-**What it demonstrates:** The observed IPv4 configuration for the IT
-machines. The displayed address and subnet information should be
-consistent with the intended IT subnet.
+**File:** `evidence/Operation subnet/Auditwindowspc-ip-configuration.png`
+**File:** `evidence/Operation subnet/HRwindowspc-ip-configuration.png`
+**File:** `evidence/Operation subnet/Saleswindowspc-ip-configuration.png`
+**File:** `evidence/Operation subnet/Windowsserver-ip-configuration.png`
 
-**Observation:** *\[Add a short note describing what the screenshot
-proves.\]*
 
-### Evidence 3 --- Default gateway configuration
+**Observation:** *\[The screenshots shows the Sales Windows PC, Windows Server, Audit Windows PC, and HR Windows
+PC configured with IPv4 addresses in the 10.0.2.0/24 range
+(10.0.2.3, .4, .5, and .15 respectively), each with a subnet mask of
+255.255.255.0 and default gateway 10.0.2.1. This confirms the
+machines are correctly placed within the Operations subnet.\]*
 
-**File:** `evidence/network-validation/gateway-configuration.png`
 
-**What it demonstrates:** The default gateway configured on the relevant
-machine interfaces, where a gateway is required by the design.
 
-**Observation:** *\[Add a short note describing what the screenshot
-proves.\]*
-
-If the evidence is split across more screenshots, add a subsection for
-each image and identify the machine, interface, and configuration being
-demonstrated. Ensure that screenshot filenames and repository paths
-match exactly.
 
 ## 6. Results and Interpretation
 
@@ -178,7 +146,7 @@ layout.
 The captured evidence supports the conclusion that the addressing
 configuration was consistent with the project's subnetting objectives
 for the machines shown. The actual IP addresses, subnet masks/prefixes,
-and gateway values should be listed in Section 4 so that another person
+and gateway values is listed in Section 4 so that another person
 can independently review this conclusion.
 
 
