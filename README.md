@@ -45,7 +45,7 @@ IT Subnet	                                       Provides a separate logical net
 # Network Design
 The architecture follows this general traffic path:
 
-# Client Devices → Internal Network Switch → pfSense Firewall → Router → Internet
+* Client Devices → Internal Network Switch → pfSense Firewall → Router → Internet *
 
 The Operations and IT departments were organised into separate subnets to support logical network separation.
 The Windows Server and Ubuntu Server provide the server infrastructure within the environment, while the Windows clients represent end-user systems. Kali Linux is included for controlled security testing.
