@@ -168,19 +168,3 @@ the diagram or virtual machine grouping alone.
 
 
 ------------------------------------------------------------------------
-
-## Portfolio publication checklist
-
-Before publishing this file:
-
--   [ ] Replace all placeholders with the actual IP addresses, subnet
-    masks/prefixes, gateway values, and observations.
--   [ ] Confirm the machine names and departmental assignments match the
-    final architecture.
--   [ ] Add the actual screenshots to the repository and correct the
-    evidence paths.
--   [ ] Remove or redact usernames, hostnames, public IP addresses, MAC
-    addresses, or other details you do not want to disclose.
--   [ ] Distinguish clearly between tests completed and tests planned.
--   [ ] Update the status and date to reflect the actual validation
-    performed.
